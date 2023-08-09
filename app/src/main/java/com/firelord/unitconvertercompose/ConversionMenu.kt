@@ -26,7 +26,10 @@ import androidx.compose.ui.unit.toSize
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier) {
+fun ConversionMenu(
+    list: List<Conversion>,
+    modifier: Modifier = Modifier,
+    convert : (Conversion) -> Unit) {
     var displayingText by remember{ mutableStateOf("Select the conversion type")}
     var textFieldSize by remember{mutableStateOf(Size.Zero)}
     var expanded by remember { mutableStateOf(false)}
@@ -71,6 +74,7 @@ fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier) {
                 }, onClick = {
                     displayingText = conversion.description
                     expanded = false
+                    convert(conversion)
                 })
             }
         }
