@@ -1,6 +1,5 @@
 package com.firelord.unitconvertercompose
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -47,8 +46,8 @@ fun ConversionMenu(
             textStyle = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold),
             modifier = modifier
                 .fillMaxWidth()
-                .onGloballyPositioned { cordinates ->
-                    textFieldSize = cordinates.size.toSize()
+                .onGloballyPositioned { coordinates ->
+                    textFieldSize = coordinates.size.toSize()
                 },
             label = { Text(text = "Conversion type") },
             trailingIcon = {
