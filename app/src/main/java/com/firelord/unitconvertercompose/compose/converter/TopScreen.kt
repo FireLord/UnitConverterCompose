@@ -1,4 +1,4 @@
-package com.firelord.unitconvertercompose.compose
+package com.firelord.unitconvertercompose.compose.converter
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState

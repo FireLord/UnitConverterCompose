@@ -24,6 +24,6 @@ class ConverterViewModel(private val repository: ConverterRepository) : ViewMode
         }
     }
 
-
+    val resultList = repository.getSavedResult()
 
 }
