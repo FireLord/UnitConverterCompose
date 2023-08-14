@@ -9,8 +9,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.firelord.unitconvertercompose.ConverterViewModel
-import com.firelord.unitconvertercompose.ConverterViewModelFactory
+import com.firelord.unitconvertercompose.viewmodel.ConverterViewModel
+import com.firelord.unitconvertercompose.viewmodel.ConverterViewModelFactory
 import com.firelord.unitconvertercompose.compose.converter.TopScreen
 import com.firelord.unitconvertercompose.compose.history.HistoryScreen
 

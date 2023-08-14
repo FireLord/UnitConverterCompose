@@ -1,4 +1,4 @@
-package com.firelord.unitconvertercompose
+package com.firelord.unitconvertercompose.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
