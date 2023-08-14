@@ -8,7 +8,10 @@ import com.firelord.unitconvertercompose.data.ConversionResult
 @Composable
 fun HistoryScreen(
     list: State<List<ConversionResult>>,
+    onCloseTask : (ConversionResult) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    HistoryList(list = list, onCloseTask = {})
+    HistoryList(list = list, onCloseTask = {item ->
+        onCloseTask(item)
+    })
 }
