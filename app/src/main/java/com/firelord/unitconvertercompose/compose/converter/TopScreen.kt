@@ -2,8 +2,10 @@ package com.firelord.unitconvertercompose.compose.converter
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.firelord.unitconvertercompose.data.Conversion
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -11,13 +13,12 @@ import java.text.DecimalFormat
 @Composable
 fun TopScreen(
     list: List<Conversion>,
+    selectedConversion : MutableState<Conversion?>,
+    inputText : MutableState<String>,
+    typedValue : MutableState<String>,
     save : (String,String) -> Unit
     ) {
-    val selectedConversion : MutableState<Conversion?> = remember { mutableStateOf(null) }
-    val inputText : MutableState<String> = remember { mutableStateOf("") }
-    val typedValue = remember { mutableStateOf("0.0") }
-
-
+    var toSave by remember { mutableStateOf(false) }
     ConversionMenu(list = list){
         selectedConversion.value = it
         typedValue.value = "0.0"
@@ -26,6 +27,7 @@ fun TopScreen(
     selectedConversion.value?.let {
         InputBlock(conversion = it, inputText = inputText) { input ->
             typedValue.value = input
+            toSave = true
         }
     }
     if (typedValue.value != "0.0"){
@@ -40,7 +42,10 @@ fun TopScreen(
 
         val message1 = "${typedValue.value} ${selectedConversion.value!!.convertFrom} is equal to"
         val message2 = "$roundedResult ${selectedConversion.value!!.convertTo}"
-        save(message1,message2)
+        if(toSave){
+            save(message1,message2)
+            toSave = false
+        }
         ResultBlock(message1 = message1, message2 = message2)
     }
 }
