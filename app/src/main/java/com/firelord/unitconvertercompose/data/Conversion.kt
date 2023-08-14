@@ -1,4 +1,4 @@
-package com.firelord.unitconvertercompose
+package com.firelord.unitconvertercompose.data
 
 data class Conversion(
     val id : Int,

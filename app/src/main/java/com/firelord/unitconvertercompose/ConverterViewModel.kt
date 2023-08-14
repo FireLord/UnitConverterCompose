@@ -1,6 +1,7 @@
 package com.firelord.unitconvertercompose
 
 import androidx.lifecycle.ViewModel
+import com.firelord.unitconvertercompose.data.Conversion
 
 class ConverterViewModel : ViewModel() {
     fun getConversions() = listOf(
